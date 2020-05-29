@@ -1,4 +1,3 @@
-import React from 'react';
 import {
     Layout,
     Menu,
@@ -72,7 +71,7 @@ function App() {
                             size={44}
                             style={{ float: 'right', margin: '10px 0' }}
                         >
-                            <AvaText>{getInitials(user?.name || '')}</AvaText>
+                           // <AvaText>{getInitials(user?.name || '')}</AvaText>
                         </Avatar>
                     </Dropdown>
                 )}
