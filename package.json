@@ -103,7 +103,7 @@
     "clean": "gatsby clean",
     "start:app": "GATSBY_ENV=development npm run develop",
     "start": "GATSBY_ENV=development run-p start:**",
-    "build:app": "npm run clean && gatsby build",
+    "build:app": "npm run clean",
     "build": "run-p build:**",
     "develop": "npm run clean && GATSBY_ENV=development gatsby develop",
     "serve": "gatsby serve",
