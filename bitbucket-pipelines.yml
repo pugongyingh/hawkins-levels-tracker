@@ -1,0 +1,33 @@
+image: node:10.15.3
+
+pipelines:
+  branches:
+    master: 
+      - step:
+          name: 'Build'
+          caches:
+          - node
+          script:
+            - yarn
+            - yarn build
+          artifacts:
+            - public/**
+      - step:
+          name: 'Deploy'
+          deployment: test
+          script:
+            - pipe: atlassian/aws-s3-deploy:0.3.2
+              variables:
+                AWS_ACCESS_KEY_ID: 'AKIAIVVFJ5R27LB6VKDQ'
+                AWS_SECRET_ACCESS_KEY: '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'
+                AWS_DEFAULT_REGION: 'us-east-2'
+                S3_BUCKET: 'starkys-test'
+                LOCAL_PATH: 'public'
+  default:
+    - step:
+        name: 'Build'
+        caches:
+          - node
+        script:
+          - yarn
+          - yarn build
